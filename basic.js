@@ -217,39 +217,54 @@
 // const Map = array.map((a) => a);
 // console.log(Map);
 
-const array1 = Array.from({ length: 20 }, (_, i) => i + 1).map(
-  (num) => num * num
-);
+// const array1 = Array.from({ length: 20 }, (_, i) => i + 1).map(
+//   (num) => num * num
+// );
 
-const listItem = [
-  {
-    description: "kkkkk",
-    quantity: 1,
-    packed: true,
-    id: 1709903452903,
-  },
-  {
-    description: "lllllllllllll",
-    quantity: 1,
-    packed: false,
-    id: 1709903483021,
-  },
-  {
-    description: "lllllllllllll",
-    quantity: 1,
-    packed: false,
-    id: 1709903483022,
-  },
-  {
-    description: "lllllllllllll",
-    quantity: 1,
-    packed: true,
-    id: 1709903483020,
-  },
-];
+// const listItem = [
+//   {
+//     description: "kkkkk",
+//     quantity: 1,
+//     packed: true,
+//     id: 1709903452903,
+//   },
+//   {
+//     description: "lllllllllllll",
+//     quantity: 1,
+//     packed: false,
+//     id: 1709903483021,
+//   },
+//   {
+//     description: "lllllllllllll",
+//     quantity: 1,
+//     packed: false,
+//     id: 1709903483022,
+//   },
+//   {
+//     description: "lllllllllllll",
+//     quantity: 1,
+//     packed: true,
+//     id: 1709903483020,
+//   },
+// ];
 
-const packed = listItem.map((item) => item.packed);
-const truepacked = packed.filter((item) => item == true);
-console.log(truepacked);
-console.log(truepacked.length);
-console.log(1/2*100)
+// const packed = listItem.map((item) => item.packed);
+// const truepacked = packed.filter((item) => item == true);
+// console.log(truepacked);
+// console.log(truepacked.length);
+// console.log(1/2*100)
+
+const originalArray = [3, 1, 2, 4];
+const spliceArray = originalArray.splice(2, 0, 5);
+// Sorting directly modifies the original array
+// const sortedArrayDirect = originalArray.sort((a, b) => a - b);
+
+// console.log("Original Array (sorted directly):", originalArray);
+// console.log("Sorted Array (sorted directly):", sortedArrayDirect);
+
+// Sorting a copy using slice() preserves the original array
+const sortedArrayCopy = originalArray.slice().sort((a, b) => a - b);
+
+console.log("Original Array (sorted copy):", originalArray);
+console.log("Sorted Array (sorted copy):", sortedArrayCopy);
+

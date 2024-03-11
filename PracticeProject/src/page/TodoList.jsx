@@ -25,7 +25,7 @@ export default function TodoList() {
   //     )
   //   );
   // }
-
+  // console.log(listItem);
   return (
     <>
       <Logo />
@@ -91,17 +91,43 @@ function From({ onAddItem }) {
 }
 
 function PackingList({ listItem, onDeleteItem, OnToggle }) {
+  const [sortBy, setSortBy] = useState("input");
+  let sortItems;
+  if (sortBy === "input") sortItems = listItem;
+  console.log(sortItems);
+
+  if (sortBy === "description")
+    sortItems = listItem
+      .slice()
+      .sort((a, b) => a.description.localeCompare(b.description));
+      console.log(sortItems);
+
+  if (sortBy == "packed")
+    sortItems = listItem
+      .slice()
+      .sort((a, b) => Number(a.packed) - Number(b.packed));
+      console.log(sortItems);
+
   return (
-    <ul className="flex gap-12 p-4 bg- ">
-      {listItem.map((item) => (
-        <Item
-          key={item.id}
-          item={item}
-          onDeleteItem={onDeleteItem}
-          toggleItem={OnToggle}
-        />
-      ))}
-    </ul>
+    <div>
+      <ul className="flex gap-12 p-4 bg- ">
+        {sortItems.map((item) => (
+          <Item
+            key={item.id}
+            item={item}
+            onDeleteItem={onDeleteItem}
+            toggleItem={OnToggle}
+          />
+        ))}
+      </ul>
+      <div className=" flex justify-center items-center">
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="input">Sort by input</option>
+          <option value="description">Sort by Description</option>
+          <option value="packed">Sort by Packed</option>
+        </select>
+      </div>
+    </div>
   );
 }
 
@@ -128,21 +154,29 @@ function Item({ item, onDeleteItem, toggleItem }) {
 }
 
 function Status({ listItem }) {
-  const packedValues = listItem.map((item) => item.packed);
-  console.log(packedValues);
-  const packedTrueCount = packedValues.filter((value) => value === true).length;
+  if (!listItem.length)
+    return (
+      <p className=" text-center">
+        <em>Start adding some items in your peking List</em>
+      </p>
+    );
+
+  const numPacked = listItem.filter((item) => item.packed).length;
+  console.log(numPacked);
   // console.log(packedTrueCount);
   // console.log(listItem.length);
-  const percentageTrueItems = (packedTrueCount / listItem.length) * 100;
+  const percentage = Math.floor((numPacked / listItem.length) * 100);
   // console.log(percentageTrueItems);
   return (
     <footer className="text-center">
       <em>
-        {`You have ${
-          listItem.length
-        } item in your List, You have packed ${packedTrueCount} and ${
-          isNaN(percentageTrueItems) ? "0" : percentageTrueItems.toFixed(2)
-        } % of Total `}
+        {percentage === 100
+          ? `Yu got everything . Ready for Travel 🦋`
+          : ` You have  ${
+              listItem.length
+            } item in your List, You have packed ${numPacked} and ${percentage.toFixed(
+              2
+            )} % of Total `}
       </em>
     </footer>
   );

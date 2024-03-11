@@ -9,6 +9,8 @@ const navLinks = [
   { name: "Q&A", path: "/q&a" },
   { name: "Lifting", path: "/lifting" },
   { name: "TodoList", path: "/todoList" },
+  { name: "Stopwatch", path: "/stopwatch" },
+
 ];
 
 export default function Header() {

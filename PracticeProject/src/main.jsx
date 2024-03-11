@@ -10,6 +10,7 @@ import Challenge3 from "./page/Challenge3.jsx"; // Import other components
 import Excerxise1 from "./page/Excerxise1.jsx"; // Import other components
 import Lifting from "./page/Lifting.jsx"; // Import other components
 import TodoList from "./page/TodoList.jsx"; // Import other components
+import StopWatch from "./page/StopWatch.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
       { path: "challenge3", element: <Challenge3 /> },
       { path: "q&a", element: <Excerxise1 /> },
       { path: "lifting", element: <Lifting /> },
-      { path: "TodoList", element: <TodoList /> },
+      { path: "todoList", element: <TodoList /> },
+      { path: "stopwatch", element: <StopWatch /> },
     ],
   },
 ]);
