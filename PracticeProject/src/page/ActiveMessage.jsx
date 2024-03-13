@@ -12,7 +12,6 @@ const active = "bg-blue-600 rounded-full px-2";
 export default function ActiveMessage() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
-  const [name, setName] = useState({ name: "Bappy" });
 
   function handlePrevious() {
     if (step > 1) setStep(step - 1);
@@ -37,10 +36,9 @@ export default function ActiveMessage() {
               <div className={step === 2 ? active : ""}>2</div>
               <div className={step === 3 ? active : ""}>3</div>
             </div>
-            <p className=" p-4 font-bold">
-              Step {step}: {message[step - 1]}
-              {name.name}
-            </p>
+<StepMessage step={step} message={message[step-1]}/>
+          
+
             <div className="flex justify-between ">
               <button
                 className=" bg-blue-600 rounded-md p-1"
@@ -62,3 +60,11 @@ export default function ActiveMessage() {
   );
 }
 
+function StepMessage({step,message}){
+return(
+  <div className=" p-4 font-bold">
+    <h3>Step {step}</h3>
+    {message}
+  </div>
+)
+}

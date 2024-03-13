@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import clsx from "clsx";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -10,7 +11,6 @@ const navLinks = [
   { name: "Lifting", path: "/lifting" },
   { name: "TodoList", path: "/todoList" },
   { name: "Stopwatch", path: "/stopwatch" },
-
 ];
 
 export default function Header() {
@@ -22,9 +22,13 @@ export default function Header() {
         {navLinks.map((link, index) => (
           <li
             key={index}
-            className={`bg-green-400 rounded-md p-1 font-bold ${
-              location.pathname === link.path ? "bg-red-500" : ""
-            }`}
+            className={clsx(
+              "rounded-md p-1 font-bold",
+              {
+                "bg-green-400": location.pathname !== link.path,
+                "bg-red-500": location.pathname === link.path,
+              }
+            )}
           >
             <NavLink to={link.path}>{link.name}</NavLink>
           </li>
