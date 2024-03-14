@@ -11,6 +11,7 @@ import Excerxise1 from "./page/Excerxise1.jsx"; // Import other components
 import Lifting from "./page/Lifting.jsx"; // Import other components
 import TodoList from "./page/TodoList.jsx"; // Import other components
 import StopWatch from "./page/StopWatch.jsx";
+import Accordion from "./page/Accordion.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "lifting", element: <Lifting /> },
       { path: "todoList", element: <TodoList /> },
       { path: "stopwatch", element: <StopWatch /> },
+      {path:"accordion",element:<Accordion/>}
     ],
   },
 ]);

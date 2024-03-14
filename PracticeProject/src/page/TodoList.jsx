@@ -6,9 +6,12 @@ import PackingList from "../components/TodoList/PackingList";
 import Status from "../components/TodoList/Status";
 export default function TodoList() {
   const [listItem, setListItem] = useState([]);
+  const [totalQuantity, setTotalQuantity] = useState(0);
 
   function handleAddItem(item) {
     setListItem((prev) => [...prev, item]);
+    setTotalQuantity(prevTotalQuantity => prevTotalQuantity + item.quantity);
+
   }
 
   function handleDeleteItem(id) {
@@ -26,17 +29,20 @@ export default function TodoList() {
     const confirmed = window.confirm("Are you sure clear the list of Item");
     if (confirmed) setListItem([]);
   }
+
+
   return (
     <>
    <Logo/>
-      <From onAddItem={handleAddItem} />
+      <From onAddItem={handleAddItem} totalQuantity={totalQuantity} />
+
       <PackingList
         listItem={listItem}
         onDeleteItem={handleDeleteItem}
         OnToggle={toggleItem}
         OnClearItem={clearListItem}
       />
-      <Status listItem={listItem} />
+      <Status listItem={listItem} totalQuantity={totalQuantity} />
     </>
   );
 }

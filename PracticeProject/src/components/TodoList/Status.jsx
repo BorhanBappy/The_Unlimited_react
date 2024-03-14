@@ -1,4 +1,4 @@
-export default function Status({ listItem }) {
+export default function Status({ listItem ,totalQuantity }) {
   if (!listItem.length)
     return (
       <p className=" text-center">
@@ -7,7 +7,7 @@ export default function Status({ listItem }) {
     );
 
   const numPacked = listItem.filter((item) => item.packed).length;
-  console.log(numPacked);
+  // console.log(numPacked);
   // console.log(packedTrueCount);
   // console.log(listItem.length);
   const percentage = Math.floor((numPacked / listItem.length) * 100);
@@ -23,6 +23,9 @@ export default function Status({ listItem }) {
               2
             )} % of Total `}
       </em>
+      <p>
+        Total Quantity: {totalQuantity}
+      </p>
     </footer>
   );
 }

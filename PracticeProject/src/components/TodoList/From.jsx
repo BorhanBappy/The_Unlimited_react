@@ -1,5 +1,6 @@
 import { useState } from "react";
-export default function From({ onAddItem }) {
+
+export default function From({ onAddItem,totalQuantity }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -39,6 +40,7 @@ export default function From({ onAddItem }) {
         />
         <button>Add</button>
       </form>
+      
     </div>
   );
 }

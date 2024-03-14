@@ -11,6 +11,8 @@ const navLinks = [
   { name: "Lifting", path: "/lifting" },
   { name: "TodoList", path: "/todoList" },
   { name: "Stopwatch", path: "/stopwatch" },
+  { name: "Accordion", path: "/accordion" },
+
 ];
 
 export default function Header() {
@@ -18,6 +20,7 @@ export default function Header() {
 
   return (
     <div>
+      
       <ul className="flex justify-center items-center gap-2 p-4 bg-slate-600">
         {navLinks.map((link, index) => (
           <li

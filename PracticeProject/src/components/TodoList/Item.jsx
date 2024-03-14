@@ -1,7 +1,8 @@
-
 export default function Item({ item, onDeleteItem, toggleItem }) {
-    return (
-      <li className="flex justify-center items-center gap-4 bg-orange-300 rounded-sm p-1">
+
+
+  return (
+      <li className="flex items-center gap-4 bg-orange-300 rounded-sm p-2 pl-14">
         <input
           type="checkbox"
           value={item.packed}
@@ -18,6 +19,5 @@ export default function Item({ item, onDeleteItem, toggleItem }) {
           X
         </button>
       </li>
-    );
-  }
-  
+  );
+}

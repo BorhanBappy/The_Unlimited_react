@@ -20,7 +20,7 @@ export default function PackingList({ listItem, onDeleteItem, OnToggle, OnClearI
   
     return (
       <div>
-        <ul className="flex gap-12 p-4 bg- ">
+        <ul className=" grid grid-cols-4  p-10 gap-10">
           {sortItems.map((item) => (
             <Item
               key={item.id}
