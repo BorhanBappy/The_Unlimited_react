@@ -11,7 +11,7 @@ function ExampleComponentWithoutEffect() {
   };
   const [name, setName] = useState("");
   const [message, setMessage] = useState("this is your Message");
- 
+
   return (
     <div>
       <input
@@ -25,7 +25,7 @@ function ExampleComponentWithoutEffect() {
         onChange={(e) => setMessage(e.target.value)}
       ></textarea>
       <button onClick={handleClick}>Add Name</button>
-      <p>{name}</p>
+
       <ul>
         {count.map((name, index) => (
           <li key={index}>{name}</li>

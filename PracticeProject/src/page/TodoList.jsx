@@ -10,8 +10,7 @@ export default function TodoList() {
 
   function handleAddItem(item) {
     setListItem((prev) => [...prev, item]);
-    setTotalQuantity(prevTotalQuantity => prevTotalQuantity + item.quantity);
-
+    setTotalQuantity((prevTotalQuantity) => prevTotalQuantity + item.quantity);
   }
 
   function handleDeleteItem(id) {
@@ -30,11 +29,10 @@ export default function TodoList() {
     if (confirmed) setListItem([]);
   }
 
-
   return (
     <>
-   <Logo/>
-      <From onAddItem={handleAddItem} totalQuantity={totalQuantity} />
+      <Logo />
+      <From onAddItem={handleAddItem} />
 
       <PackingList
         listItem={listItem}

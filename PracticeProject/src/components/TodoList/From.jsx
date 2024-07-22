@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function From({ onAddItem,totalQuantity }) {
+export default function From({ onAddItem }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -21,7 +21,7 @@ export default function From({ onAddItem,totalQuantity }) {
         className="flex justify-center gap-2"
         onSubmit={handleSubmit}
       >
-        <p>What do you need for your trip?</p>
+        <p>What do you need for your 😍 trip?</p>
         <select
           value={quantity}
           onChange={(e) => setQuantity(Number(e.target.value))}
@@ -38,9 +38,8 @@ export default function From({ onAddItem,totalQuantity }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button>Add</button>
+        <button>Add </button>
       </form>
-      
     </div>
   );
 }

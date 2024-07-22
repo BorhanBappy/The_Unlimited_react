@@ -3,7 +3,7 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      'abc': ["Tilt Prism", "sans-serif"],
+      'abc': [ "Tilt Prism", "sans-serif"],
     },
   },
   plugins: [],

@@ -38,7 +38,9 @@ const skills = [
   },
 ];
 
-function SkillList({ color, skill, label }) {
+function SkillList({ skills }) {
+  console.log(skills);
+  const { color, skill, label } = skills;
   // console.log(color);
   return (
     <div className="mb-1">
@@ -79,9 +81,15 @@ function App() {
   return (
     <>
       <div className=" flex justify-start items-start">
-        <div className="m-8 border-black border-2 h-[470px] w-[370px]">
+        <div className="m-8 border-black border-2 h-full w-[370px]">
           <Avatar />
           <Intro />
+
+          <label htmlFor="">ADD A new Skill</label>
+          <input
+            type="text"
+            className=" border border-blue-600 rounded-md w-1/2 m-2"
+          />
           <div className="px-6 font-semibold grid grid-cols-2 justify-items-start">
             {/* <SkillList
               skill1="HTML+CSS"
@@ -107,20 +115,15 @@ function App() {
               color1="bg-sky-400 "
               color2="bg-[#FA390E] "
             /> */}
-            {skills.map((skills, skill) => (
-              <SkillList
-                key={skill}
-                skill={skills.skill}
-                color={skills.color}
-                label={skills.label}
-              />
+
+            {skills.map((skills) => (
+              <SkillList key={skills.skill} skills={skills} />
             ))}
           </div>
         </div>
         {count}
         <button onClick={() => setCount(count + 1)}>Increment</button>
         <Stopwatch />
-
       </div>
       <Stopwatch />
     </>

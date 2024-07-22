@@ -12,7 +12,8 @@ const navLinks = [
   { name: "TodoList", path: "/todoList" },
   { name: "Stopwatch", path: "/stopwatch" },
   { name: "Accordion", path: "/accordion" },
-
+  { name: "Tip Calculator", path: "/tipcalculator" },
+  { name: "Eat_N_Split", path: "/eatnsplit" },
 ];
 
 export default function Header() {
@@ -20,18 +21,15 @@ export default function Header() {
 
   return (
     <div>
-      
-      <ul className="flex justify-center items-center gap-2 p-4 bg-slate-600">
+      {/* Laptop View */}
+      <ul className="grid md:grid-cols-6 lg:grid-cols-9 justify-self-start lg:items-center text-center gap-2 py-4   lg:px-8 bg-slate-600">
         {navLinks.map((link, index) => (
           <li
             key={index}
-            className={clsx(
-              "rounded-md p-1 font-bold",
-              {
-                "bg-green-400": location.pathname !== link.path,
-                "bg-red-500": location.pathname === link.path,
-              }
-            )}
+            className={clsx("rounded-md p-1 font-bold", {
+              "bg-green-400": location.pathname !== link.path,
+              "bg-red-500": location.pathname === link.path,
+            })}
           >
             <NavLink to={link.path}>{link.name}</NavLink>
           </li>

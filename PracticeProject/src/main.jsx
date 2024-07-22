@@ -12,6 +12,8 @@ import Lifting from "./page/Lifting.jsx"; // Import other components
 import TodoList from "./page/TodoList.jsx"; // Import other components
 import StopWatch from "./page/StopWatch.jsx";
 import Accordion from "./page/Accordion.jsx";
+import TipCalculator from "./page/TipCalculator.jsx";
+import EatNSplit from "./page/EatNSplit.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,9 @@ const router = createBrowserRouter([
       { path: "lifting", element: <Lifting /> },
       { path: "todoList", element: <TodoList /> },
       { path: "stopwatch", element: <StopWatch /> },
-      {path:"accordion",element:<Accordion/>}
+      { path: "accordion", element: <Accordion /> },
+      { path: "tipcalculator", element: <TipCalculator /> },
+      { path: "eatnsplit", element: <EatNSplit /> },
     ],
   },
 ]);
