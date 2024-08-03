@@ -23,23 +23,25 @@ export default function Lifting() {
 }
 
 function Input({ name, password }) {
-  const [nam, chnagename] = useState("");
+  const [nam, changeName] = useState("");
   const [pass, changePass] = useState("");
   function handleSubmit() {
     name(nam);
     password(pass);
   }
-  console.log(name);
+
   return (
     <div>
-      <label> Enter Your Name</label>
+      <label> Enter Your Name :</label>
       <input
+        className=" rounded-md border-4 border-red-600"
         type="text"
         value={nam}
-        onChange={(e) => chnagename(e.target.value)}
+        onChange={(e) => changeName(e.target.value)}
       />
-      <label> Enter Your Password</label>
+      <label> Enter Your Password :</label>
       <input
+        className=" rounded-md border-4 border-red-600"
         type="password"
         value={pass}
         onChange={(e) => changePass(e.target.value)}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { clsx } from "clsx";
 
 const questions = [
   {
@@ -34,24 +35,53 @@ const questions = [
   },
 ];
 
+// export default function Exercise1() {
+//   const [selectedID, setSelectedID] = useState(null);
+//   function handleID(id) {
+//     setSelectedID(id !== selectedID ? id : null);
+//     // console.log(id);
+//     // console.log(selectedID);
+//   }
+
+//   return (
+//     <div className=" grid grid-cols-3 gap-12 p-8 text-2xl  shadow-md  ">
+//       {questions.map((question) => (
+//         <div key={question.id}>
+//           <p
+//             onClick={() => handleID(question.id)}
+//             className={
+//               question.id === selectedID
+//                 ? " bg-green-600 w-[400px] h-[200px] text-white text-center mx-auto p-2"
+//                 : " bg-slate-200 w-[400px] h-[200px] text-center mx-auto "
+//             }
+//           >
+//             {question.id === selectedID
+//               ? `${question.answer}`
+//               : `${question.question}`}
+//           </p>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
 export default function Exercise1() {
   const [selectedID, setSelectedID] = useState(null);
-  function handleID(id) {
+
+  function handle(id) {
     setSelectedID(id !== selectedID ? id : null);
-    // console.log(id);
-    // console.log(selectedID);
   }
 
   return (
-    <div className=" grid grid-cols-3 gap-12 p-8 text-2xl rounded-lg">
+    <div className="grid grid-cols-3 gap-4 p-6 text-2xl">
       {questions.map((question) => (
         <div key={question.id}>
           <p
-            onClick={() => handleID(question.id)}
+            onClick={() => handle(question.id)}
             className={
               question.id === selectedID
-                ? "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2 "
-                : " "
+                ? "bg-green-600 w-[400px] h-[200px] text-white text-center mx-auto p-2 rounded-lg"
+                : "bg-slate-200 w-[400px] h-[200px] text-center mx-auto rounded-lg p-2"
             }
           >
             {question.id === selectedID

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Challenge3() {
   const [count, setCount] = useState(0);
-  const [range, setRange] = useState(0);
+  const [range, setRange] = useState(1);
 
   const date = new Date();
   date.setDate(date.getDate() + count);
@@ -61,21 +61,19 @@ export default function Challenge3() {
         </span>
         <span>{date.toDateString()}</span>
       </div>
-      {count != 0 ? (
+      {count != 0 && (
         <button
           className=" bg-slate-200 shadow-xl p-2 rounded-md"
           onClick={reset}
         >
           Reset
         </button>
-      ) : (
-        ""
       )}
     </div>
   );
 
   function reset() {
-    setRange(0);
+    setRange(1);
     setCount(0);
   }
 }

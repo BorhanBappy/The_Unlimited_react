@@ -14,6 +14,7 @@ const navLinks = [
   { name: "Accordion", path: "/accordion" },
   { name: "Tip Calculator", path: "/tipcalculator" },
   { name: "Eat_N_Split", path: "/eatnsplit" },
+  { name: "Checkout", path: "/checkout" },
 ];
 
 export default function Header() {

@@ -14,6 +14,7 @@ import StopWatch from "./page/StopWatch.jsx";
 import Accordion from "./page/Accordion.jsx";
 import TipCalculator from "./page/TipCalculator.jsx";
 import EatNSplit from "./page/EatNSplit.jsx";
+import CheckOut from "./page/CheckOut.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "accordion", element: <Accordion /> },
       { path: "tipcalculator", element: <TipCalculator /> },
       { path: "eatnsplit", element: <EatNSplit /> },
+      { path: "checkout", element: <CheckOut /> },
     ],
   },
 ]);

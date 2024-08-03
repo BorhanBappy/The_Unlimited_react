@@ -86,7 +86,7 @@ export default function ActiveMessage() {
   }
   return (
     <>
-      <button className="p-4 text-2xl" onClick={() => setOpen(!open)}>
+      <button className="p-4 text-2xl relative" onClick={() => setOpen(!open)}>
         🔄
       </button>
       {open ? (
@@ -98,7 +98,10 @@ export default function ActiveMessage() {
           </div>
           <Message step={step} message={message[step - 1]} />
           <div className=" flex justify-between p-2">
-            <ButtonBTN name={"Previous"} handle={handlePrevious} />
+            <ButtonBTN
+              name={"Previous"}
+              handle={() => step > 1 && setStep((s) => s - 1)}
+            />
             <ButtonBTN name={"Next"} handle={handleNext} />
           </div>
         </div>
