@@ -447,5 +447,7 @@ const codding = [
 const values = codding.map((item) => item.name);
 console.log(values);
 
-const arr = [5, 6, 8, 9, 15, 18];
+let arr = [5, 6, 8, 9, 15, 18];
 console.log(arr.reduce((accu, curr) => accu + curr, 0));
+arr.filter(5);
+console.log(arr);
