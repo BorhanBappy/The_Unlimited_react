@@ -20,7 +20,7 @@ export default function From({ handleAddItem }) {
   }
 
   return (
-    <div className="flex justify-center gap-2">
+    <div className="flex justify-center gap-2 mt-2">
       <form
         action=""
         className="flex justify-center gap-2"
@@ -38,9 +38,12 @@ export default function From({ handleAddItem }) {
           type="text"
           placeholder="Item..."
           value={description}
+          className=" text-xl"
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button>Add </button>
+        <button className=" bg-green-500 p-1 px-2 rounded-md text-xl">
+          Add{" "}
+        </button>
       </form>
     </div>
   );

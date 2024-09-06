@@ -15,6 +15,7 @@ import Accordion from "./page/Accordion.jsx";
 import TipCalculator from "./page/TipCalculator.jsx";
 import EatNSplit from "./page/EatNSplit.jsx";
 import CheckOut from "./page/CheckOut.jsx";
+import TipCalculate from "./page/TipCalculate.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       { path: "tipcalculator", element: <TipCalculator /> },
       { path: "eatnsplit", element: <EatNSplit /> },
       { path: "checkout", element: <CheckOut /> },
+      { path: "TipCalculate", element: <TipCalculate /> },
     ],
   },
 ]);

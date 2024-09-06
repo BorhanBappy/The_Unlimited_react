@@ -20,7 +20,7 @@ const data = [
   },
   {
     title: "Get Started",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut magni accusantium aliquam dicta vel minima laboriosam inventore incidunt dolorum, itaque animi fugit ipsa id numquam voluptatum repellat? Error, expedita quasi culpa nobis odit id nisi minus quam quos pariatur iste labore consectetur placeat alias eum sed ab, veritatis, nihil totam tempore sint! Incidunt voluptatum possimus minima rem repudiandae pariatur, expedita sapiente magni eaque ratione ipsa eligendi, praesentium dolor excepturi sint dignissimos vel nobis distinctio laudantium quaerat. Velit hic, eveniet id quam ducimus a esse veritatis sapiente possimus fugiat laudantium corrupti dolor, amet quod. Amet atque molestias eos illo rerum iusto, dicta maiores et dolor adipisci ipsa perferendis praesentium? Quibusdam omnis molestias eligendi enim repellat. Quas, iste adipisci fuga maxime magnam neque cupiditate! Aliquid, doloribus. Non repudiandae dolor voluptatem fugiat perferendis consequatur quos autem facilis necessitatibus molestias placeat consequuntur provident, doloremque assumenda quaerat corporis asperiores nostrum, quas enim id tempore explicabo sint! Dignissimos, porro molestiae. Corporis quae veniam et tempora optio ullam sed ratione molestias enim quidem, voluptas incidunt eveniet fugiat quas voluptatibus unde provident distinctio aspernatur non odio excepturi minus dicta. Quae inventore ut in eveniet esse, dignissimos veritatis eaque, iure laboriosam odio vero mollitia molestias commodi nulla accusantium fugit quam, corporis dolore aliquam repellat aperiam! Architecto dignissimos doloremque repudiandae odio veniam debitis, fugiat asperiores tempora inventore. Earum voluptatibus impedit consequatur aliquid quo eos perferendis, similique facere a nostrum fuga adipisci recusandae, tempora tenetur perspiciatis quasi ipsa? Fugit illo, odit, fuga in alias facere ex eligendi porro accusamus amet fugiat sunt cumque? Dolores iure tenetur culpa at doloribus libero minus suscipit a mollitia neque rem tempore cum excepturi ratione necessitatibus debitis, consequatur soluta! Laboriosam quo sed velit itaque, deleniti fugiat ipsum tempora voluptate consequatur dolores qui ratione magni hic, perspiciatis sunt. Assumenda ratione deserunt vitae aperiam fugiat quibusdam placeat enim. Sit tempore non a architecto odit fuga? Libero ipsam sint excepturi delectus beatae numquam, iusto repellendus id, ab eaque minima iste? Ex eligendi quisquam dolorem ullam laborum molestias natus deleniti laboriosam sint obcaecati iste excepturi consectetur maxime illo ipsum ut sit recusandae aspernatur assumenda, omnis inventore nihil voluptas aperiam. Perspiciatis hic, et cumque expedita repudiandae ratione soluta nobis, adipisci ab sapiente ad facere inventore repellendus deleniti mollitia aperiam odit! Fuga eligendi velit, consequuntur aliquam rem eveniet perferendis nesciunt reiciendis sequi? Similique, adipisci rerum accusamus, nulla unde hic odit suscipit magnam sint voluptate dicta reiciendis mollitia libero omnis vero enim nisi ducimus repudiandae incidunt laborum sequi iure fuga officia? Veritatis odit corrupti, dolor nihil fugiat hic, id aspernatur temporibus odio incidunt sunt, ut adipisci voluptas? Explicabo temporibus non distinctio velit commodi repudiandae earum reiciendis dicta ad consequatur! Doloribus nulla fugiat suscipit sequi perspiciatis earum, deleniti vero iure itaque molestiae, nemo ad rem quia aperiam libero! Consequatur culpa enim reprehenderit eveniet perspiciatis sit minus explicabo rerum eligendi corporis, accusamus illo error ex saepe ab voluptas, eum, voluptates atque! Porro voluptatibus tempore ut autem tenetur quidem inventore exercitationem enim. Quisquam, delectus consequatur cumque dolores, quia ea excepturi vero magni autem alias quas odio?"
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut magni accusantium aliquam dicta vel minima laboriosam inventore incidunt dolorum...",
   },
 ];
 
@@ -33,45 +33,60 @@ export default function App() {
 }
 
 function Accordion({ data }) {
+  // export default function Accordion() {
+  const [curOpen, setcurOpen] = useState(null);
+
   return (
     <div className="bg-gray-100">
       {data.map((el, i) => (
-        <AccordionItem key={i} num={i} title={el.title} text={el.text} />
+        <AccordionItem
+          key={i}
+          num={i}
+          title={el.title}
+          text={el.text}
+          curOpen={curOpen}
+          setcurOpen={setcurOpen}
+        />
       ))}
     </div>
   );
 }
 
-function AccordionItem({ num, title, text }) {
-  const [Te, hideText] = useState(false);
+function AccordionItem({ num, title, text, curOpen, setcurOpen }) {
+  const isActive = num === curOpen;
+  // console.log(isActive, num);
   return (
-    <ul className="p-4 text-2xl ">
+    <ul className="p-4 text-2xl">
       <div
-        onClick={() => hideText(!Te)}
-        className=" bg-white w-full p-1 cursor-pointer"
+        onClick={() => setcurOpen(isActive ? null : num)}
+        className={clsx("bg-white w-full p-1 cursor-pointer", {
+          "border-t-4 border-green-500": isActive,
+        })}
       >
         <div className="flex items-center justify-between">
           <div>
             <span
               className={clsx("ml-4", {
-                " text-slate-400": Te === false,
-                "text-green-700 font-semibold": Te === true,
+                "text-slate-400": !isActive,
+                "text-green-700 font-semibold": isActive,
               })}
             >
               {("0" + (num + 1)).slice(-2)}
             </span>
             <span
               className={clsx("ml-4", {
-                "text-black": Te === false,
-                "text-green-700 font-semibold": Te === true,
+                "text-black": !isActive,
+                "text-green-700 font-semibold": isActive,
               })}
             >
               {title}
             </span>
           </div>
-          <span className=" text-4xl">{Te ? "-" : "+"}</span>
+          <span className="text-4xl">{isActive ? "-" : "+"}</span>
         </div>
-        {Te ? <p className="text-[19px] p-12 pt-5 text-justify">{text}</p> : ""}
+        {isActive && (
+          <p className="text-[19px] p-12 pt-5 text-justify">{text}</p>
+        )}
       </div>
     </ul>
   );

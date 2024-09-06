@@ -26,6 +26,7 @@ export default function TodoList() {
     setListItem((listItem) => listItem.filter((item) => item.id !== id));
   }
   function toggleItem(id) {
+    console.log(id);
     setListItem((listItem) =>
       listItem.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item

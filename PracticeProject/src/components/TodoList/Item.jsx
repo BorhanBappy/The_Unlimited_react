@@ -8,7 +8,8 @@ export default function Item({ item, onDeleteItem, toggleItem }) {
         className="h-5 w-5 bg-red-700"
       />
       <span className={`${item.packed ? "line-through bg-red-700" : ""}`}>
-        {item.quantity} {item.description}
+        <span className=" text-blue-800 font-bold"> {item.quantity} </span>
+        <span> {item.description}</span>
       </span>
       <button
         className="text-red-600 text-xl font-bold"

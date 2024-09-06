@@ -15,6 +15,7 @@ const navLinks = [
   { name: "Tip Calculator", path: "/tipcalculator" },
   { name: "Eat_N_Split", path: "/eatnsplit" },
   { name: "Checkout", path: "/checkout" },
+  { name: "TipCalculate", path: "/TipCalculate" },
 ];
 
 export default function Header() {

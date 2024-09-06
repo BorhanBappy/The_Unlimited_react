@@ -11,8 +11,7 @@ export default function CheckOut() {
     <div className="flex justify-between p-8">
       {/* <Total coupons={coupons} />
       <Promotion handleCoupons={handleCoupons} /> */}
-      <Counter />
-      <Counter2 />
+      <TodoList />
     </div>
   );
 }
@@ -71,34 +70,23 @@ function Promotion({ handleCoupons }) {
   );
 }
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function TodoList() {
+  const [todos, setTodos] = useState(["Learn React", "Build a project"]);
 
-  const increment = () => {
-    setCount(count + 1);
-    setCount(count + 1); // Multiple state updates
+  const addTodo = () => {
+    const newTodo = "Write tests";
+    todos.push(newTodo); // Mutating the original array
+    setTodos([...todos]); // React might not detect this change
   };
-
+  console.log(todos);
   return (
     <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-    </div>
-  );
-}
-
-function Counter2() {
-  const [count, setCount] = useState(0);
-
-  const increment = () => {
-    setCount((prevCount) => prevCount + 1); // Using functional form
-    setCount((prevCount) => prevCount + 1); // Multiple state updates with functional form
-  };
-
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+      <button onClick={addTodo}>Add Todo</button>
     </div>
   );
 }
