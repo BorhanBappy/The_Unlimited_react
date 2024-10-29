@@ -2,11 +2,16 @@ import React, { useState } from "react";
 
 export default function TipCalculate() {
   const [bill, setBill] = useState("");
-  const [tipsY, setTipsY] = useState(null);
-  const [tipsF, setTipsF] = useState(null);
+  const [tipsY, setTipsY] = useState(0);
+  const [tipsF, setTipsF] = useState(0);
   console.log(bill);
   const final = ((tipsY / 100) * bill + (tipsF / 100) * bill) / 2;
   const total = bill + final;
+  const onClick = () => {
+    setBill("");
+    setTipsF(0);
+    setTipsY(0);
+  };
   return (
     <div>
       <Bill bill={bill} setBill={setBill} />
@@ -14,10 +19,23 @@ export default function TipCalculate() {
       <ServiceF setTipsF={setTipsF} />
 
       <div>{bill > 0 ? `You Pay $ ${total} (${bill} +${final} tips)` : ""}</div>
-      <button>Reset</button>
+      <div className=" ml-48">
+        <Btn onClick={onClick} reset="Reset" />
+      </div>
     </div>
   );
 }
+
+const Btn = (props) => {
+  return (
+    <button
+      onClick={props.onClick}
+      className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50"
+    >
+      {props.reset}
+    </button>
+  );
+};
 
 function Bill({ bill, setBill }) {
   return (

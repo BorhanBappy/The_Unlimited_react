@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Example</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Example</title>
+  </head>
+  <body>
+    <button id="myButton">Click me</button>
 
-<button id="myButton">Click me</button>
+    <script src="interview.js">
+      // Get a reference to the button element
+      const button = document.getElementById("myButton");
 
-<script>
-  // Get a reference to the button element
-  const button = document.getElementById('myButton');
-
-  // Add a click event listener to the button
-  button.addEventListener('click', function(event) {
-    // This function will be called when the button is clicked
-    console.log('Button clicked!');
-    console.log(event); // Event object contains information about the event
-  });
-</script>
-
-</body>
+      // Add a click event listener to the button
+      button.addEventListener("click", function (event) {
+        // This function will be called when the button is clicked
+        console.log("Button clicked!");
+        console.log(event); // Event object contains information about the event
+      });
+    </script>
+  </body>
 </html>

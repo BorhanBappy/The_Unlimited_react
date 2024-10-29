@@ -2,34 +2,29 @@ import React, { useState } from "react";
 
 export default function AgeCalculator() {
   const [birthDate, setBirthDate] = useState("");
-  const [age, setAge] = useState(null);
+  const [result, setResult] = useState(null);
 
   const handleDateChange = (event) => {
     setBirthDate(event.target.value);
   };
 
-  const calculateAge = () => {
+  const calculateDateDifference = () => {
     if (!birthDate) {
-      alert("Please select your date of birth.");
+      alert("Please select a date.");
       return;
     }
 
+    // Set both dates to midnight to avoid timezone issues
     const birth = new Date(birthDate);
     const today = new Date();
+    today.setHours(0, 0, 0, 0); // set today to midnight
+    birth.setHours(0, 0, 0, 0); // set birthDate to midnight
 
-    const timeDifference = today.getTime() - birth.getTime();
-    const ageDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const futureDate = new Date(birth.getTime() + 90 * 24 * 60 * 60 * 1000);
 
-    const ageYears = Math.floor(ageDays / 365.25);
-    const remainingDays = ageDays % 365.25;
-    const ageMonths = Math.floor(remainingDays / 30.44);
-    const exactDays = Math.floor(remainingDays % 30.44);
-
-    setAge({
-      years: ageYears,
-      months: ageMonths,
-      days: exactDays,
-      totalDays: ageDays,
+    setResult({
+      totalDays: Math.floor((today - birth) / (1000 * 60 * 60 * 24)),
+      isNRISK: today > futureDate,
     });
   };
 
@@ -50,34 +45,26 @@ export default function AgeCalculator() {
           id="birthDatePicker"
           onChange={handleDateChange}
           className="w-full px-6 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-2xl"
-          style={{ height: "60px" }} // Increase the height of the input
+          style={{ height: "60px" }}
         />
         <button
-          onClick={calculateAge}
+          onClick={calculateDateDifference}
           className="mt-4 w-full bg-indigo-600 text-white py-3 px-6 rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-2xl"
         >
-          Calculate Age
+          Calculate Days
         </button>
       </div>
-      {age && (
+      {result && (
         <div className="text-center">
           <p className="text-4xl text-gray-800">
-            Your age is:{" "}
-            <span className="font-bold">
-              {age.months} months and {age.days} days
-            </span>
-            .
-          </p>
-          <p className="text-4xl text-gray-800 mt-2">
-            Or, <span className="font-bold">{age.totalDays} days in total</span>
-            .
+            Total Days: <span className="font-bold">{result.totalDays}</span>
           </p>
           <p
             className={`text-4xl mt-4 ${
-              age.totalDays < 90 ? "text-green-600" : "text-red-600"
+              result.isNRISK ? "text-red-600" : "text-green-600"
             }`}
           >
-            {age.totalDays > 90 ? "NRISK" : "Alert"}
+            {result.isNRISK ? "NRISK" : "Alert"}
           </p>
         </div>
       )}

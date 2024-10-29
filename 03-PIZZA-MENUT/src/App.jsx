@@ -5,9 +5,9 @@ import Example from "./components/Example";
 function App() {
   return (
     <>
-      {/* <Pizza />
-      <PizzaMenu /> */}
-      <Example />
+      <Pizza />
+      {/* <PizzaMenu /> */}
+      {/* <Example /> */}
     </>
   );
 }

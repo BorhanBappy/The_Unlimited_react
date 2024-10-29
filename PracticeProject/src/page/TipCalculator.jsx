@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function TipCalculator() {
+export default function () {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function TipCalculator() {
 
   return (
     <div>
-      <h1>Categories</h1> 
+      <h1>Categories</h1>
     </div>
   );
 }
