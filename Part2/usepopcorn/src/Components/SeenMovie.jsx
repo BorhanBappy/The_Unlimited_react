@@ -3,14 +3,16 @@ import { useState } from "react";
 import { tempWatchedData } from "../data.js";
 // Define the average function
 
-const average = (arr) => {
-  if (arr.length === 0) return 0;
-  const sum = arr.reduce((acc, curr) => acc + curr, 0);
-  return (sum / arr.length).toFixed(1);
-};
+// const average = (arr) => {
+//   if (arr.length === 0) return 0;
+//   const sum = arr.reduce((acc, curr) => acc + curr, 0);
+//   return (sum / arr.length).toFixed(1);
+// };
+const average = (arr) =>
+  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 export default function SeenMovie() {
-  const [watched, setWatched] = useState(tempWatchedData);
+  const [watched] = useState(tempWatchedData);
   const [isOpen, setOpen] = useState(true);
 
   return (
@@ -79,7 +81,7 @@ function Summary({ watched }) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
   const avgUserRating = average(watched.map((movie) => movie.userRating));
   const avgRuntime = average(watched.map((movie) => movie.runtime));
-  const arr = watched.map((movie) => movie.runtime);
+  const arr = watched.map((movie) => movie.userRating);
   console.log(arr);
   return (
     <div className="bg-slate-700 p-4 rounded-lg shadow-sm w-full relative">

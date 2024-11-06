@@ -458,3 +458,10 @@ console.log(newarray);
 console.log("One");
 console.log("Twp");
 console.log("Three");
+const num = null;
+
+if (num) {
+  console.log("THis Falsy value");
+} else {
+  console.log("True Value");
+}

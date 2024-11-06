@@ -48,7 +48,7 @@ function Search() {
         type="text"
         placeholder="Search movies..."
         value={querySelector}
-        className="w-[400px] p-2 pl-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        className="md:w-[400px] p-2 pl-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400"
         onChange={(e) => setQuerySelector(e.target.value)}
       />
       <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
