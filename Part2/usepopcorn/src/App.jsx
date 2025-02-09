@@ -27,19 +27,19 @@ export default function App() {
     <div>
       {" "}
       {/* <Test /> */}
-      {/* <StarRating
-    maxRating={5}
-    messages={["Terrible", "Bad", "Okay", "Good", "Amazing"]}
-  /> */}
+      <StarRating
+        maxRating={8}
+        messages={["Terrible", "Bad", "Okay", "Good", "Amazing"]}
+      />
       {/* <StarRating maxRating={5} size={20} color="red" defaultRating={3} /> */}
-      {/* <ListedMovie />
- <TextArea /> */}
+      {/* <ListedMovie />*/}
+      <TextArea />
       {/* <CrazyButton /> */}
       {/* <ToolBar /> */}
-      <Popcorn />
+      {/* <Popcorn />
       <Composition>
         <Succes />
-      </Composition>
+      </Composition> */}
     </div>
   );
 }

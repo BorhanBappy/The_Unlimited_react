@@ -12,7 +12,6 @@ function Popcorn() {
   return (
     <div className=" w-screen bg-gray-900">
       <Navbar>
-        <Logo />
         <Search />
         <NumResult movies={movies} />
       </Navbar>
@@ -67,6 +66,7 @@ function Search() {
 function Navbar({ children }) {
   return (
     <nav className="bg-blue-500 py-3 px-8 flex items-center justify-between">
+      <Logo />
       {children}
     </nav>
   );

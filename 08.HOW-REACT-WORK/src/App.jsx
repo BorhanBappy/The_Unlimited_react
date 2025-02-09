@@ -56,7 +56,7 @@ function Tabbed({ content }) {
       ) : (
         <DifferentContent />
       )}
-      {TabContent({ item: content.at(1) })}
+      {/* {TabContent({ item: content.at(1) })} */}
     </div>
   );
 }
