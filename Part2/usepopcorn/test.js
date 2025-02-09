@@ -1,86 +1,69 @@
-// const items = [
-//   { name: "Apple", price: 1 },
-//   { name: "Orange", price: 2 },
-//   { name: "Mango", price: 3 },
-// ];
+// Array.from({ length: 10 }, (_, i) => console.log(i));
+const oneWord = (str) => str.replace(/ /g, "").toLowerCase();
 
-// let totalPrice = 0;
+const transformer = function (str, fn) {
+  let b = "age";
+  return function () {
+    console.log(`Transformed String :${fn(str)} ${b}`);
+  };
+};
 
-// items.forEach((item) => {
-//   totalPrice += item.price;
-// });
+let array = [
+  "Bappy",
+  "Sharukh",
+  "Shorif",
+  "Saim",
+  "Shanto",
+  "Arif",
+  "Rakib",
+  "Tanvir",
+  "Riyad",
+];
+array.forEach((element, index) => {
+  setTimeout(() => {
+    const hello = transformer(element, oneWord);
+    hello();
+  }, index * 2000);
+});
 
-// console.log(totalPrice);
+// transformer("Javascript is the future !", oneWord);
 
-// const TotalPrice = items.reduce((acc, item) => acc + item.price, 0);
+// const numbers = [1, 2, 3, 4];
+// const sum = numbers.reduce((result, item) => result + item, 0);
+// const filter = numbers.filter((item) => item <= 3);
+// console.log(sum, filter)
 
-// console.log(TotalPrice);
-
-// for (let i = 0; i < items.length; i++) {
-//   totalPrice += items[i].price; // Access price of each item in items array
-// }
-
-// console.log(totalPrice);
-
-// const numbers = [1, 2, 3];
-// const sum = numbers.reduce((accumulator, number) => accumulator + number, 0);
-// console.log(sum); // Outputs: 6
-
-// // ANother Function
-
-// function performActionOnArray(array, actionCallback) {
-//   for (let i = 0; i < array.length; i++) {
-//     actionCallback(array[i], i, array);
+// function x() {
+//   for (let i = 1; i <= 10; i++) {
+//     setTimeout(() => {
+//       console.log(i);
+//     }, 2000); // Multiply `i` by 2000ms to delay each number by 2 seconds
 //   }
 // }
+// x();
 
-// performActionOnArray([1, 2, 3], (number, index, arr) => {
-//   console.log(`Element ${number} at index ${index} out of [${arr}]`);
-// });
+// function outer() {
+//   let count = 0; // Local variable in outer function
 
-function sample(a, b) {
-  var c = a + b;
-  var d = a - b;
-  var result = sum1(c, d);
-  return result;
-}
+//   return function inner() {
+//     count++; // Accesses and modifies the `count` variable from the outer function
+//     console.log(count); // Prints the updated count
+//   };
+// }
 
-function sum1(a, b) {
-  return a + b;
-}
+// const counter = outer(); // `outer()` returns the `inner` function, which forms a closure
+// counter(); // Outputs: 1
+// counter(); // Outputs: 2
+// counter(); // Outputs: 3
 
-console.log(sample(5, 6));
+// for (var index = 0; index < 10; index++) {
+//   index;
+// }
 
-function sample2(a, b, cb) {
-  var c = a + b;
-  var d = a - b;
-  var result = cb(c, d);
-  return result;
-}
+// console.log(index);
 
-function abs(a, b) {
-  let c = a - b;
-  return c;
-}
+// const temnumer = "";
 
-let result = sample2(5, 6, abs);
-console.log(result);
+// temnumer ? console.log("Hello Bappy") : console.log("Not True ");
 
-function customReduce(array, callback, initialValue) {
-  let accumulator = initialValue;
-
-  for (let i = 0; i < array.length; i++) {
-    accumulator = callback(accumulator, array[i]);
-  }
-
-  return accumulator;
-}
-
-function acc(accumulator, number) {
-  return accumulator + number;
-}
-// Usage example
-const numbers = [1, 2, 3];
-const sum = customReduce(numbers, acc, 0);
-
-console.log(sum); // Outputs: 6
+// () => console.log("Hello");

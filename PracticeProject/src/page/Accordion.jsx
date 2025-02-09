@@ -25,36 +25,24 @@ const data = [
 ];
 
 export default function App() {
-  return (
-    <div>
-      <Accordion data={data} />
-    </div>
-  );
-}
-
-function Accordion({ data }) {
   // export default function Accordion() {
-  const [curOpen, setcurOpen] = useState(null);
 
   return (
     <div className="bg-gray-100">
       {data.map((el, i) => (
-        <AccordionItem
-          key={i}
-          num={i}
-          title={el.title}
-          text={el.text}
-          curOpen={curOpen}
-          setcurOpen={setcurOpen}
-        />
+        <AccordionItem key={i} num={i} title={el.title} text={el.text} />
       ))}
     </div>
   );
 }
 
-function AccordionItem({ num, title, text, curOpen, setcurOpen }) {
+function AccordionItem({ num, title, text, textn }) {
+  const [curOpen, setcurOpen] = useState(null);
+
   const isActive = num === curOpen;
-  // console.log(isActive, num);
+  console.log(num);
+  console.log(curOpen);
+  // console.log(isActive);
   return (
     <ul className="p-4 text-2xl">
       <div
@@ -79,7 +67,7 @@ function AccordionItem({ num, title, text, curOpen, setcurOpen }) {
                 "text-green-700 font-semibold": isActive,
               })}
             >
-              {title}
+              {`${title} ,${textn}`}
             </span>
           </div>
           <span className="text-4xl">{isActive ? "-" : "+"}</span>

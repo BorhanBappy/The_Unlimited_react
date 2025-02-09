@@ -23,28 +23,34 @@ export default function Lifting() {
 }
 
 function Input({ name, password }) {
-  const [nam, changeName] = useState("");
-  const [pass, changePass] = useState("");
-  function handleSubmit() {
-    name(nam);
-    password(pass);
-  }
+  const [fromData, setFromData] = useState({ Fname: "", password: "" });
 
+  function handleSubmit() {
+    name(fromData.Fname);
+    password(fromData.password);
+    setFromData({ Fname: "", password: "" });
+  }
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFromData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  }
   return (
     <div>
       <label> Enter Your Name :</label>
       <input
         className=" rounded-md border-4 border-red-600"
         type="text"
-        value={nam}
-        onChange={(e) => changeName(e.target.value)}
+        name="Fname"
+        value={fromData.Fname}
+        onChange={handleChange}
       />
       <label> Enter Your Password :</label>
       <input
         className=" rounded-md border-4 border-red-600"
         type="password"
-        value={pass}
-        onChange={(e) => changePass(e.target.value)}
+        name="password"
+        value={fromData.password}
+        onChange={handleChange}
       />
       <button type="submit" onClick={handleSubmit}>
         Submit

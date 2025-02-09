@@ -1,0 +1,11 @@
+{
+  "advice": [
+    { "id": 1, "text": "Stay positive and work hard." },
+    { "id": 2, "text": "Be consistent in your efforts." },
+    { "id": 3, "text": "Learn from failures and grow." },
+    { "id": 4, "text": "Take breaks to rejuvenate your mind." },
+    { "id": 5, "text": "Set realistic goals and achieve them step by step." }
+  ]
+}
+
+

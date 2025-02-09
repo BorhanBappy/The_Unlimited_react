@@ -73,22 +73,24 @@
 // counter.reset(); // 5
 // counter.decrement(); // 4
 
-const student = {
-  name: "Bappy ",
-  mark: 26,
-  printMarks: function () {
-    console.log("Marks", this.mark);
-  },
-};
+// const student = {
+//   name: "Bappy ",
+//   mark: 26,
+//   printMarks: function () {
+//     console.log("Marks", this.mark);
+//   },
+// };
 
-const employee = {
-  calTax() {
-    console.log("10 % tax  of salary ");
-  },
-};
+// const employee = {
+//   calTax() {
+//     console.log("10 % tax  of salary ");
+//   },
+// };
 
-const karanArjun = {
-  salary: 5000,
-};
+// const karanArjun = {
+//   salary: 5000,
+// };
 
-karanArjun.__proto__ = employee;
+// karanArjun.__proto__ = employee;
+
+console.log("object");

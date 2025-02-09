@@ -42,3 +42,6 @@ export const tempWatchedData = [
     userRating: 9,
   },
 ];
+
+let a = tempWatchedData.map((movie) => movie.userRating);
+console.log(a);

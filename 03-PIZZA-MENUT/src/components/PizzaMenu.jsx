@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
+const pizzaDat = [];
 const pizzaData = [
   {
     name: "Focaccia",
@@ -68,8 +69,8 @@ function Menu() {
       {numPizzas > 0 ? (
         <div>
           <p className=" text-center pt-6">
-            Authentic Italian cuisine. 6 creative dishes to chose from. All from
-            our stone oven, all organic, all delicious
+            Authentic Italian cuisine. {numPizzas} creative dishes to chose
+            from. All from our stone oven, all organic, all delicious
           </p>
           <ul className="p-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {pizzaData.map((pizza) => (
@@ -104,7 +105,7 @@ function Pizza({ pizzaObj }) {
     >
       <img className="h-20 w-16" src={photoName} alt={name} />
       <div>
-        <h3 className="font-bold">{name}</h3>
+        <h3 className="font-bold ">{name}</h3>
         <p>{ingredients}</p>
         <span className="font-semibold mt-4 mr-2">
           {pizzaObj.soldOut ? "SOLD OUT" : prices}
@@ -113,7 +114,7 @@ function Pizza({ pizzaObj }) {
           ""
         ) : (
           <button onClick={handlePrice} type="button">
-            Increase Price
+            IncreasePrice
           </button>
         )}
       </div>

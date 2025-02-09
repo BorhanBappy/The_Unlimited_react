@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Example</title>
   </head>
+
   <body>
-    <button id="myButton">Click me</button>
+    <div class="container">
+      <h1>ইভেন্ট প্রোপাগেশন কি?</h1>
 
-    <script src="interview.js">
-      // Get a reference to the button element
-      const button = document.getElementById("myButton");
+      <div class="parent" id="parent">
+        <form id="form">
+          <button type="button" id="button">Click here</button>
+        </form>
+      </div>
+    </div>
 
-      // Add a click event listener to the button
-      button.addEventListener("click", function (event) {
-        // This function will be called when the button is clicked
-        console.log("Button clicked!");
-        console.log(event); // Event object contains information about the event
-      });
-    </script>
+    <script src="basic.js"></script>
   </body>
 </html>

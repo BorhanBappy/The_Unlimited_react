@@ -1,13 +1,15 @@
 import Pizza from "./components/Pizza";
 import PizzaMenu from "./components/PizzaMenu";
 import Example from "./components/Example";
+import Rivision from "./components/Rivision";
 
 function App() {
   return (
     <>
-      <Pizza />
+      {/* <Pizza /> */}
       {/* <PizzaMenu /> */}
       {/* <Example /> */}
+      <Rivision />
     </>
   );
 }

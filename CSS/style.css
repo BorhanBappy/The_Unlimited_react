@@ -1,0 +1,9 @@
+/* Display Property */
+div{
+    background-color: blue;
+    display: inline;
+}
+.h{
+    background-color: green;
+    display:block;
+}
