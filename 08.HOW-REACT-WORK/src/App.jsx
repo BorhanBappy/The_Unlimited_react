@@ -44,24 +44,37 @@ function Tabbed({ content }) {
 
   return (
     <div>
-      <div className="flex  space-x-4 px-12 py-4 mt-8 ">
-        <Tab num={0} activeTab={activeTab} setActiveTab={setActiveTab} />
-        <Tab num={1} activeTab={activeTab} setActiveTab={setActiveTab} />
-        <Tab num={2} activeTab={activeTab} setActiveTab={setActiveTab} />
-        <Tab num={3} activeTab={activeTab} setActiveTab={setActiveTab} />
-        <Tab num={4} activeTab={activeTab} setActiveTab={setActiveTab} />
-      </div>
-      {activeTab < 4 ? (
-        <TabContent item={content.at(activeTab)} />
-      ) : (
-        <DifferentContent />
-      )}
-      {/* {TabContent({ item: content.at(1) })} */}
+      <TabList
+        count={content.length}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+
+      <TabContent content={content} activeTab={activeTab} />
+    </div>
+  );
+}
+function TabContent({ content, activeTab }) {
+  if (activeTab >= content.length) return <DifferentContent />;
+
+  return <ContentDetails item={content[activeTab]} />;
+}
+function TabList({ count, activeTab, setActiveTab }) {
+  return (
+    <div className="flex  space-x-4 px-12 py-4 mt-8 ">
+      {[...Array(count + 2)].map((_, index) => (
+        <Tab
+          key={index}
+          num={index}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+      ))}
     </div>
   );
 }
 
-const TabContent = ({ item }) => {
+const ContentDetails = ({ item }) => {
   const [showDetails, setShowDetails] = useState(true);
   const [love, setLove] = useState(0);
   return (
