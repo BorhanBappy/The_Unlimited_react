@@ -54,11 +54,7 @@ function Tabbed({ content }) {
     </div>
   );
 }
-function TabContent({ content, activeTab }) {
-  if (activeTab >= content.length) return <DifferentContent />;
-
-  return <ContentDetails item={content[activeTab]} />;
-}
+// dynamical add Tab
 function TabList({ count, activeTab, setActiveTab }) {
   return (
     <div className="flex  space-x-4 px-12 py-4 mt-8 ">
@@ -72,6 +68,12 @@ function TabList({ count, activeTab, setActiveTab }) {
       ))}
     </div>
   );
+}
+
+function TabContent({ content, activeTab }) {
+  if (activeTab >= content.length) return <DifferentContent />;
+
+  return <ContentDetails item={content[activeTab]} />;
 }
 
 const ContentDetails = ({ item }) => {
