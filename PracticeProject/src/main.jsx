@@ -17,6 +17,7 @@ import EatNSplit from "./page/EatNSplit.jsx";
 import CheckOut from "./page/CheckOut.jsx";
 import TipCalculate from "./page/TipCalculate.jsx";
 import Jug from "./page/Jug.jsx";
+import QuizGame from "./page/QuizGame.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: "checkout", element: <CheckOut /> },
       { path: "TipCalculate", element: <TipCalculate /> },
       { path: "Jug", element: <Jug /> },
+      { path: "QuizGame", element: <QuizGame /> },
     ],
   },
 ]);

@@ -36,8 +36,8 @@ export default function App() {
     </div>
   );
 }
-console.log(<DifferentContent />);
-console.log(DifferentContent(123));
+// console.log(<DifferentContent />);
+// console.log(DifferentContent(123));
 
 function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -79,6 +79,7 @@ function TabContent({ content, activeTab }) {
 const ContentDetails = ({ item }) => {
   const [showDetails, setShowDetails] = useState(true);
   const [love, setLove] = useState(0);
+  console.log(item);
   return (
     <div className=" bg-gray-200 mx-12 w-[600px] p-4">
       <h1 className=" text-xl text-blue-900 font-bold py-2"> {item.summary}</h1>
@@ -89,7 +90,7 @@ const ContentDetails = ({ item }) => {
 "
           onClick={() => setShowDetails((setShowDetails) => !setShowDetails)}
         >
-          {showDetails ? "See Less" : "See More"}
+          {showDetails ? "Hide Details" : "Show Details"}
         </button>
         <div>
           {love} <button onClick={() => setLove((e) => e + 1)}>❤️</button>

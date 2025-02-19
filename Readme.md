@@ -84,8 +84,19 @@
 - How to identify states.
 - How to Decide on the data flow.
 
-## How to think of Component.
+## How to think of Component
+
+### Component and Component Instance
+
+![alt text](image-1.png)
+
+### How components are displayed on the screen
 
 # UseEffect
 
 - UseEffect call after first render current component and when changing the dependency.
+
+# Tailwind CSS
+
+- jsconfig.json
+- { "exclude": ["node_modules"] }

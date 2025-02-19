@@ -720,5 +720,56 @@
 // let b = a("BAppy");
 // console.log(b);
 
-let b = [...Array(5)].map((_, index) => "hello");
-console.log(b);
+// let b = [...Array(5)].map((_, index) => "hello");
+// console.log(b);
+
+// function getData(dataID, getnextdata) {
+//   setTimeout(() => {
+//     if (getnextdata) {
+//       getnextdata();
+//     }
+//     console.log(dataID);
+//   }, 2000);
+// }
+
+// getData(12, function data() {
+//   getData(2, () =>
+//     getData(5, () => getData(6, () => getData(8, () => getData(9))))
+//   );
+// });
+
+// let promise = new Promise((resolve, reject) => {
+//   console.log("I am Promose");
+//   reject("some error occured");
+// });
+
+// function getdata(dataID) {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log(dataID);
+//       resolve("succes");
+//     }, 2000);
+//   });
+// }
+
+// getdata(1).then(() => getdata(4));
+
+function getdata(dataID) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(dataID);
+      // resolve("succes");
+    }, 2000);
+  });
+}
+
+async function get() {
+  try {
+    await getdata(2);
+    await getdata(4);
+    await getdata(6);
+  } catch {
+    console.log("Error Find");
+  }
+}
+get();

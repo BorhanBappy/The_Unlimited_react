@@ -17,6 +17,7 @@ const navLinks = [
   { name: "Checkout", path: "/checkout" },
   { name: "TipCalculate", path: "/TipCalculate" },
   { name: "Jug", path: "/Jug" },
+  { name: "QuizGame", path: "/QuizGame" },
 ];
 
 export default function Header() {
